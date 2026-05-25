@@ -5,7 +5,6 @@ import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.Collections;
@@ -20,22 +19,13 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder(toBuilder = true)
-public record HarPostData(
-        @Nullable String mimeType,
-        @Nonnull List<HarPostDataParam> params,
-        @Nullable String text,
-        @Nullable String comment,
-        @Nonnull Map<String, Object> additional) {
+public record HarPostData(@Nullable String mimeType, @Nonnull List<HarPostDataParam> params, @Nullable String text, @Nullable String comment, @Nonnull Map<String, Object> additional) {
 
     public HarPostData() {
         this(null, Collections.emptyList(), null, null, new HashMap<>());
     }
 
-    public HarPostData(@Nullable String mimeType,
-                       @Nullable List<HarPostDataParam> params,
-                       @Nullable String text,
-                       @Nullable String comment,
-                       @Nullable Map<String, Object> additional) {
+    public HarPostData(@Nullable String mimeType, @Nullable List<HarPostDataParam> params, @Nullable String text, @Nullable String comment, @Nullable Map<String, Object> additional) {
         this.mimeType = mimeType;
         this.params = (params == null) ? Collections.emptyList() : params;
         this.text = text;
@@ -48,12 +38,11 @@ public record HarPostData(
      */
     @JsonAnyGetter
     public Map<String, Object> additional() {
-        return additional;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @JsonAnySetter
     public void setAdditionalField(String key, Object value) {
-        this.additional.put(key, value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

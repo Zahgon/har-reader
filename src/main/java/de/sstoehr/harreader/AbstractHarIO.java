@@ -4,10 +4,10 @@ import de.sstoehr.harreader.jackson.DefaultMapperFactory;
 import de.sstoehr.harreader.jackson.MapperFactory;
 import tools.jackson.core.JacksonException;
 import tools.jackson.databind.ObjectMapper;
-
 import java.util.function.Function;
 
 public abstract class AbstractHarIO {
+
     private final MapperFactory mapperFactory;
 
     public AbstractHarIO(MapperFactory mapperFactory) {
@@ -22,23 +22,16 @@ public abstract class AbstractHarIO {
     }
 
     protected MapperFactory getMapperFactory() {
-        return mapperFactory;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
-    protected static <T, E extends Exception> T wrap(ObjectMapper mapper, IOFunction<ObjectMapper, T> consumer,
-            Function<JacksonException, E> exceptionFactory) throws E {
-        try {
-            return consumer.apply(mapper);
-        } catch(JacksonException thrown) {
-            throw exceptionFactory.apply(thrown);
-        }
+    protected static <T, E extends Exception> T wrap(ObjectMapper mapper, IOFunction<ObjectMapper, T> consumer, Function<JacksonException, E> exceptionFactory) throws E {
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @FunctionalInterface
     protected interface IOFunction<T, R> {
 
         R apply(T object) throws JacksonException;
-
     }
-
 }

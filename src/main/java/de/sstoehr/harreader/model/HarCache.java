@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.time.ZonedDateTime;
@@ -20,21 +19,13 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder(toBuilder = true)
-public record HarCache(
-        @Nullable HarCacheInfo beforeRequest,
-        @Nullable HarCacheInfo afterRequest,
-        @Nullable String comment,
-        @Nonnull Map<String, Object> additional
-) {
+public record HarCache(@Nullable HarCacheInfo beforeRequest, @Nullable HarCacheInfo afterRequest, @Nullable String comment, @Nonnull Map<String, Object> additional) {
 
     public HarCache() {
         this(null, null, null, new HashMap<>());
     }
 
-    public HarCache(@Nullable HarCacheInfo beforeRequest,
-                    @Nullable HarCacheInfo afterRequest,
-                    @Nullable String comment,
-                    @Nullable Map<String, Object> additional) {
+    public HarCache(@Nullable HarCacheInfo beforeRequest, @Nullable HarCacheInfo afterRequest, @Nullable String comment, @Nullable Map<String, Object> additional) {
         this.beforeRequest = beforeRequest;
         this.afterRequest = afterRequest;
         this.comment = comment;
@@ -43,12 +34,12 @@ public record HarCache(
 
     @JsonAnyGetter
     public Map<String, Object> additional() {
-        return additional;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @JsonAnySetter
     public void setAdditionalField(String key, Object value) {
-        additional.put(key, value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -58,23 +49,13 @@ public record HarCache(
     @JsonInclude(JsonInclude.Include.NON_NULL)
     @JsonIgnoreProperties(ignoreUnknown = true)
     @Builder(toBuilder = true)
-    public record HarCacheInfo(@Nullable @JsonFormat(shape = JsonFormat.Shape.STRING) ZonedDateTime expires,
-                                      @Nullable @JsonFormat(shape = JsonFormat.Shape.STRING) ZonedDateTime lastAccess,
-                                      @Nullable String eTag,
-                                      @Nullable Integer hitCount,
-                                      @Nullable String comment,
-                                      @Nonnull Map<String, Object> additional) {
+    public record HarCacheInfo(@Nullable @JsonFormat(shape = JsonFormat.Shape.STRING) ZonedDateTime expires, @Nullable @JsonFormat(shape = JsonFormat.Shape.STRING) ZonedDateTime lastAccess, @Nullable String eTag, @Nullable Integer hitCount, @Nullable String comment, @Nonnull Map<String, Object> additional) {
 
         public HarCacheInfo() {
             this(null, null, null, null, null, new HashMap<>());
         }
 
-        public HarCacheInfo(@Nullable ZonedDateTime expires,
-                            @Nullable ZonedDateTime lastAccess,
-                            @Nullable String eTag,
-                            @Nullable Integer hitCount,
-                            @Nullable String comment,
-                            @Nullable Map<String, Object> additional) {
+        public HarCacheInfo(@Nullable ZonedDateTime expires, @Nullable ZonedDateTime lastAccess, @Nullable String eTag, @Nullable Integer hitCount, @Nullable String comment, @Nullable Map<String, Object> additional) {
             this.expires = expires;
             this.lastAccess = lastAccess;
             this.eTag = eTag;
@@ -88,13 +69,12 @@ public record HarCache(
          */
         @JsonAnyGetter
         public Map<String, Object> additional() {
-            return additional;
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
 
         @JsonAnySetter
         public void setAdditionalField(String key, Object value) {
-            this.additional.put(key, value);
+            throw new UnsupportedOperationException("STUB: not implemented");
         }
-
     }
 }

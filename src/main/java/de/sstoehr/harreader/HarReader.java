@@ -3,7 +3,6 @@ package de.sstoehr.harreader;
 import de.sstoehr.harreader.jackson.MapperFactory;
 import de.sstoehr.harreader.model.Har;
 import tools.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.InputStream;
 
@@ -20,11 +19,11 @@ public class HarReader extends AbstractHarIO {
     }
 
     public Har readFromFile(File har) throws HarReaderException {
-        return this.readFromFile(har, DEFAULT_READER_MODE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Har readFromFile(File har, HarReaderMode mode) throws HarReaderException {
-        return wrap(mode, mapper -> mapper.readValue(har, Har.class));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -35,7 +34,7 @@ public class HarReader extends AbstractHarIO {
      * @throws HarReaderException if a low-level I/O problem occurs
      */
     public Har readFromInputStream(InputStream harInputStream) throws HarReaderException {
-        return this.readFromInputStream(harInputStream, DEFAULT_READER_MODE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -47,15 +46,15 @@ public class HarReader extends AbstractHarIO {
      * @throws HarReaderException if a low-level I/O problem occurs
      */
     public Har readFromInputStream(InputStream harInputStream, HarReaderMode mode) throws HarReaderException {
-        return wrap(mode, mapper -> mapper.readValue(harInputStream, Har.class));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Har readFromString(String har) throws HarReaderException {
-        return this.readFromString(har, DEFAULT_READER_MODE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public Har readFromString(String har, HarReaderMode mode) throws HarReaderException {
-        return wrap(mode, mapper -> mapper.readValue(har, Har.class));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -66,7 +65,7 @@ public class HarReader extends AbstractHarIO {
      * @throws HarReaderException if a low-level I/O problem occurs
      */
     public Har readFromBytes(byte[] bytes) throws HarReaderException {
-        return this.readFromBytes(bytes, DEFAULT_READER_MODE);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -78,7 +77,7 @@ public class HarReader extends AbstractHarIO {
      * @throws HarReaderException if a low-level I/O problem occurs
      */
     public Har readFromBytes(byte[] bytes, HarReaderMode mode) throws HarReaderException {
-        return wrap(mode, mapper -> mapper.readValue(bytes, Har.class));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private <T> T wrap(HarReaderMode mode, IOFunction<ObjectMapper, T> consumer) throws HarReaderException {

@@ -6,7 +6,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Builder;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.time.ZonedDateTime;
@@ -20,30 +19,13 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @Builder(toBuilder = true)
-public record HarCookie(
-        @Nullable String name,
-        @Nullable String value,
-        @Nullable String path,
-        @Nullable String domain,
-        @Nullable @JsonFormat(shape = JsonFormat.Shape.STRING) ZonedDateTime expires,
-        @Nullable Boolean httpOnly,
-        @Nullable Boolean secure,
-        @Nullable String comment,
-        @Nonnull Map<String, Object> additional) {
+public record HarCookie(@Nullable String name, @Nullable String value, @Nullable String path, @Nullable String domain, @Nullable @JsonFormat(shape = JsonFormat.Shape.STRING) ZonedDateTime expires, @Nullable Boolean httpOnly, @Nullable Boolean secure, @Nullable String comment, @Nonnull Map<String, Object> additional) {
 
     public HarCookie() {
         this(null, null, null, null, null, null, null, null, new HashMap<>());
     }
 
-    public HarCookie(@Nullable String name,
-                     @Nullable String value,
-                     @Nullable String path,
-                     @Nullable String domain,
-                     @Nullable ZonedDateTime expires,
-                     @Nullable Boolean httpOnly,
-                     @Nullable Boolean secure,
-                     @Nullable String comment,
-                     @Nullable Map<String, Object> additional) {
+    public HarCookie(@Nullable String name, @Nullable String value, @Nullable String path, @Nullable String domain, @Nullable ZonedDateTime expires, @Nullable Boolean httpOnly, @Nullable Boolean secure, @Nullable String comment, @Nullable Map<String, Object> additional) {
         this.name = name;
         this.value = value;
         this.path = path;
@@ -60,12 +42,11 @@ public record HarCookie(
      */
     @JsonAnyGetter
     public Map<String, Object> additional() {
-        return additional;
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     @JsonAnySetter
     public void setAdditionalField(String key, Object value) {
-        this.additional.put(key, value);
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
-
 }

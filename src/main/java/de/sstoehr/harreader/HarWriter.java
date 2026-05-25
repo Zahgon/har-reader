@@ -3,7 +3,6 @@ package de.sstoehr.harreader;
 import de.sstoehr.harreader.jackson.MapperFactory;
 import de.sstoehr.harreader.model.Har;
 import tools.jackson.databind.ObjectMapper;
-
 import java.io.File;
 import java.io.OutputStream;
 import java.io.Writer;
@@ -25,7 +24,7 @@ public final class HarWriter extends AbstractHarIO {
      * @throws HarWriterException if a low-level I/O problem occurs
      */
     public String writeAsString(Har har) throws HarWriterException {
-        return wrap(m -> m.writeValueAsString(har));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     /**
@@ -35,28 +34,19 @@ public final class HarWriter extends AbstractHarIO {
      * @throws HarWriterException if a low-level I/O problem occurs
      */
     public byte[] writeAsBytes(Har har) throws HarWriterException {
-        return wrap(m -> m.writeValueAsBytes(har));
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void writeTo(Writer writer, Har har) throws HarWriterException {
-        wrap(m -> {
-            m.writeValue(writer, har);
-            return null;
-        });
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void writeTo(OutputStream os, Har har) throws HarWriterException {
-        wrap(m -> {
-            m.writeValue(os, har);
-            return null;
-        });
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     public void writeTo(File file, Har har) throws HarWriterException {
-        wrap(m -> {
-            m.writeValue(file, har);
-            return null;
-        });
+        throw new UnsupportedOperationException("STUB: not implemented");
     }
 
     private <T> T wrap(IOFunction<ObjectMapper, T> consumer) throws HarWriterException {
